@@ -1,0 +1,47 @@
+---
+interface Props {
+  title?: string;
+  company?: string;
+  revision?: string;
+  sheet?: string;
+  date?: string;
+}
+
+const {
+  title = "ANUJ KHATRI",
+  company = "ANUJ KHATRI",
+  revision = "1.0",
+  sheet = "1 / 1",
+  date = new Date().toISOString().slice(0, 10),
+} = Astro.props;
+---
+
+<div
+  class="font-mono text-[10px] text-red-700 border border-red-600 bg-white/90 w-[260px]"
+>
+  <div class="grid grid-cols-3 border-b border-red-600">
+    <div class="border-r border-red-600 px-1 py-0.5">TITLE</div>
+    <div class="col-span-2 px-1 py-0.5">{title}</div>
+  </div>
+
+  <div class="grid grid-cols-3 border-b border-red-600">
+    <div class="border-r border-red-600 px-1 py-0.5">COMPANY</div>
+    <div class="col-span-2 px-1 py-0.5">{company}</div>
+  </div>
+
+  <div class="grid grid-cols-4 border-b border-red-600">
+    <div class="border-r border-red-600 px-1 py-0.5">DATE</div>
+    <div class="border-r border-red-600 px-1 py-0.5">{date}</div>
+
+    <div class="border-r border-red-600 px-1 py-0.5">REV</div>
+    <div class="px-1 py-0.5">{revision}</div>
+  </div>
+
+  <div class="grid grid-cols-4">
+    <div class="border-r border-red-600 px-1 py-0.5">DRAWN</div>
+    <div class="border-r border-red-600 px-1 py-0.5">ANUJ</div>
+
+    <div class="border-r border-red-600 px-1 py-0.5">SHEET</div>
+    <div class="px-1 py-0.5">{sheet}</div>
+  </div>
+</div>

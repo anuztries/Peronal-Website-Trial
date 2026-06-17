@@ -1,0 +1,80 @@
+---
+interface Props {
+  src: string;
+  alt?: string;
+
+  reference?: string;
+  label?: string;
+
+  value?: string;
+
+  status?: string;
+
+  version?: string;
+}
+
+const {
+  src,
+  alt = "",
+
+  reference = "P1",
+  label = "PERSON",
+
+  value = "ANUJ KHATRI",
+
+  status = "ACTIVE",
+
+  version = "v1.0",
+} = Astro.props;
+---
+
+<div class="schematic-photo hero-photo">
+  <!-- Reference Designator -->
+  <span class="reference">{reference}</span>
+
+  <!-- Component Type -->
+  <span class="label">{label}</span>
+
+  <!-- Left Pin -->
+  <div class="pin pin-left">
+    <span class="pin-dot"></span>
+    <span class="pin-name">IN</span>
+  </div>
+
+  <!-- Right Pin -->
+  <div class="pin pin-right">
+    <span class="pin-dot"></span>
+    <span class="pin-name">OUT</span>
+  </div>
+
+  <!-- Component Body -->
+  <div class="component-body">
+    <!-- Decorative Corner Marks -->
+    <span class="corner tl"></span>
+    <span class="corner tr"></span>
+    <span class="corner bl"></span>
+    <span class="corner br"></span>
+
+    <div class="photo-frame">
+      <img src={src} alt={alt} class="photo" />
+    </div>
+  </div>
+
+  <!-- Property Table -->
+  <div class="properties">
+    <div>
+      <span>NAME</span>
+      <span>{value}</span>
+    </div>
+
+    <div>
+      <span>STATUS</span>
+      <span>{status}</span>
+    </div>
+
+    <div>
+      <span>VER</span>
+      <span>{version}</span>
+    </div>
+  </div>
+</div>

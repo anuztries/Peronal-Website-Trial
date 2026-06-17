@@ -1,0 +1,82 @@
+---
+import TitleBlock from "./TitleBlock.astro";
+---
+
+<section class="relative min-h-screen overflow-hidden">
+  <!-- OUTER BORDER -->
+  <div class="absolute inset-3 border-2 border-red-700 pointer-events-none">
+  </div>
+
+  <!-- INNER BORDER -->
+  <div class="absolute inset-8 border border-red-600 pointer-events-none"></div>
+
+  <!-- ========================= -->
+  <!-- TOP COORDINATES -->
+  <!-- ========================= -->
+
+  <div
+    class="absolute top-3 left-8 right-8 h-5 flex font-mono text-[11px] text-red-700"
+  >
+    {
+      [1, 2, 3, 4].map((n) => (
+        <div class="flex-1 border-r border-red-600 first:border-l flex justify-center">
+          {n}
+        </div>
+      ))
+    }
+  </div>
+
+  <!-- Bottom -->
+
+  <div
+    class="absolute bottom-3 left-8 right-8 h-5 flex font-mono text-[11px] text-red-700"
+  >
+    {
+      [1, 2, 3, 4].map((n) => (
+        <div class="flex-1 border-r border-red-600 first:border-l flex justify-center">
+          {n}
+        </div>
+      ))
+    }
+  </div>
+
+  <!-- Left -->
+
+  <div
+    class="absolute left-3 top-8 bottom-8 w-5 flex flex-col font-mono text-[11px] text-red-700"
+  >
+    {
+      ["A", "B", "C"].map((c) => (
+        <div class="flex-1 border-b border-red-600 first:border-t flex items-center justify-center">
+          {c}
+        </div>
+      ))
+    }
+  </div>
+
+  <!-- Right -->
+
+  <div
+    class="absolute right-3 top-8 bottom-8 w-5 flex flex-col font-mono text-[11px] text-red-700"
+  >
+    {
+      ["A", "B", "C"].map((c) => (
+        <div class="flex-1 border-b border-red-600 first:border-t flex items-center justify-center">
+          {c}
+        </div>
+      ))
+    }
+  </div>
+
+  <!-- Title Block -->
+
+  <div class="absolute bottom-8 right-8">
+    <TitleBlock />
+  </div>
+
+  <!-- Content -->
+
+  <div class="relative z-10 px-20 py-20">
+    <slot />
+  </div>
+</section>
