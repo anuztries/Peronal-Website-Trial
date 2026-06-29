@@ -1,0 +1,50 @@
+---
+import TitleBlockFooter from "./TitleBlockFooter.astro";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="relative border-t-2 border-red-700 mt-32 px-8 md:px-20 py-12">
+  <!-- Title block now sits full-width on its own row -->
+  <TitleBlockFooter />
+
+  <!-- Flavor text left, plain arrow-links right -->
+  <div class="mt-10 flex flex-col md:flex-row justify-between gap-8">
+    <!-- <div
+      class="font-mono text-[10px] text-red-400 tracking-wide leading-relaxed"
+    >
+      <p>VCC — 3V3 ±5%</p>
+      <p>CLK — 16MHz ±20ppm</p>
+      <p>FIG.00 — PERSONAL_BUILD</p>
+      <p>DO NOT SCALE / VECTOR ASSET</p>
+    </div> -->
+
+    <div
+      class="flex flex-wrap gap-x-6 gap-y-2 font-mono text-xs uppercase tracking-wide"
+    >
+      <a
+        href="https://github.com/yourusername"
+        class="text-gray-600 hover:text-red-700 transition-colors">▸ GITHUB</a
+      >
+      <a
+        href="https://linkedin.com/in/yourprofile"
+        class="text-gray-600 hover:text-red-700 transition-colors">▸ LINKEDIN</a
+      >
+      <a
+        href="https://instagram.com/yourprofile"
+        class="text-gray-600 hover:text-red-700 transition-colors"
+        >▸ INSTAGRAM</a
+      >
+      <a
+        href="mailto:you@email.com"
+        class="text-gray-600 hover:text-red-700 transition-colors">▸ EMAIL</a
+      >
+    </div>
+  </div>
+
+  <div
+    class="mt-12 text-center font-mono text-[10px] text-gray-400 tracking-wide"
+  >
+    © {year} ANUJ KHATRI · ALL DIMENSIONS IN PIXELS UNLESS OTHERWISE NOTED
+  </div>
+</footer>

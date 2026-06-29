@@ -1,0 +1,89 @@
+---
+interface Props {
+  title?: string;
+  drawnBy?: string;
+  material?: string;
+  finish?: string;
+  scale?: string;
+  revision?: string;
+  sheet?: string;
+  date?: string;
+  tolerance?: string;
+  status?: string;
+}
+
+const {
+  title = "PERSONAL PORTFOLIO",
+  drawnBy = "ANUJ KHATRI",
+  material = "ASTRO / TAILWIND / VANILLA JS",
+  finish = "KICAD LIGHT, SCHEMATIC",
+  scale = "1:1",
+  revision = "1.0",
+  sheet = "1 OF 1",
+  date = new Date().toISOString().slice(0, 10),
+  tolerance = "±0 KNOWN BUGS",
+  status = "IN DEVELOPMENT",
+} = Astro.props;
+---
+
+<!-- Wrapped in overflow-x-auto on purpose: a real drawing sheet doesn't
+     reflow for screen size, it just gets viewed at a different scale. -->
+<div
+  class="w-full border border-red-600 font-mono text-red-700 overflow-x-auto"
+>
+  <div class="grid grid-cols-4 min-w-[640px] border-b border-red-600">
+    <div class="border-r border-red-600 px-3 py-2">
+      <div class="text-[9px] text-red-400 tracking-widest uppercase">TITLE</div>
+      <div class="text-xs mt-0.5">{title}</div>
+    </div>
+    <div class="border-r border-red-600 px-3 py-2">
+      <div class="text-[9px] text-red-400 tracking-widest uppercase">
+        DRAWN BY
+      </div>
+      <div class="text-xs mt-0.5">{drawnBy}</div>
+    </div>
+    <div class="border-r border-red-600 px-3 py-2">
+      <div class="text-[9px] text-red-400 tracking-widest uppercase">
+        MATERIAL
+      </div>
+      <div class="text-xs mt-0.5">{material}</div>
+    </div>
+    <div class="px-3 py-2">
+      <div class="text-[9px] text-red-400 tracking-widest uppercase">
+        FINISH
+      </div>
+      <div class="text-xs mt-0.5">{finish}</div>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-6 min-w-[640px]">
+    <div class="border-r border-red-600 px-3 py-2">
+      <div class="text-[9px] text-red-400 tracking-widest uppercase">SCALE</div>
+      <div class="text-xs mt-0.5">{scale}</div>
+    </div>
+    <div class="border-r border-red-600 px-3 py-2">
+      <div class="text-[9px] text-red-400 tracking-widest uppercase">REV</div>
+      <div class="text-xs mt-0.5">{revision}</div>
+    </div>
+    <div class="border-r border-red-600 px-3 py-2">
+      <div class="text-[9px] text-red-400 tracking-widest uppercase">SHEET</div>
+      <div class="text-xs mt-0.5">{sheet}</div>
+    </div>
+    <div class="border-r border-red-600 px-3 py-2">
+      <div class="text-[9px] text-red-400 tracking-widest uppercase">DATE</div>
+      <div class="text-xs mt-0.5">{date}</div>
+    </div>
+    <div class="border-r border-red-600 px-3 py-2">
+      <div class="text-[9px] text-red-400 tracking-widest uppercase">
+        TOLERANCE
+      </div>
+      <div class="text-xs mt-0.5">{tolerance}</div>
+    </div>
+    <div class="px-3 py-2">
+      <div class="text-[9px] text-red-400 tracking-widest uppercase">
+        STATUS
+      </div>
+      <div class="text-xs mt-0.5">{status}</div>
+    </div>
+  </div>
+</div>
