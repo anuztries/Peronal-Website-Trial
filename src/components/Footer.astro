@@ -8,34 +8,87 @@ const year = new Date().getFullYear();
   <!-- Title block now sits full-width on its own row -->
   <TitleBlockFooter />
 
-  <!-- Social links right -->
-  <div class="mt-2 flex flex-col md:flex-row justify-end gap-4">
-    <div
-      class="flex flex-wrap gap-x-6 gap-y-2 font-mono text-xs uppercase tracking-wide justify-end"
-    >
-      <a
-        href="https://github.com/yourusername"
-        class="text-gray-600 hover:text-red-700 transition-colors">[GITHUB]</a
-      >
-      <a
-        href="https://linkedin.com/in/yourprofile"
-        class="text-gray-600 hover:text-red-700 transition-colors">[LINKEDIN]</a
-      >
-      <a
-        href="https://instagram.com/yourprofile"
-        class="text-gray-600 hover:text-red-700 transition-colors"
-        >[INSTAGRAM]</a
-      >
-      <a
-        href="mailto:you@email.com"
-        class="text-gray-600 hover:text-red-700 transition-colors">[EMAIL]</a
-      >
-    </div>
-  </div>
-
-  <div
-    class="mt-2 text-center font-mono text-[10px] text-gray-400 tracking-wide"
-  >
-    © {year} ANUJ KHATRI · ALL DIMENSIONS IN PIXELS UNLESS OTHERWISE NOTED
+  <!-- Footer content in table layout -->
+  <div class="footer-table-container mt-4">
+    <table class="footer-table">
+      <tbody>
+        <tr>
+          <td class="footer-copyright">
+            <span class="copyright-text">© {year} ANUJ KHATRI · ALL DIMENSIONS IN PIXELS UNLESS OTHERWISE NOTED</span>
+          </td>
+          <td class="footer-social">
+            <div
+              class="flex flex-wrap gap-x-6 gap-y-2 font-mono text-xs uppercase tracking-wide justify-end"
+            >
+              <a
+                href="https://github.com/yourusername"
+                class="text-gray-600 hover:text-red-700 transition-colors">[GITHUB]</a
+              >
+              <a
+                href="https://linkedin.com/in/yourprofile"
+                class="text-gray-600 hover:text-red-700 transition-colors">[LINKEDIN]</a
+              >
+              <a
+                href="https://instagram.com/yourprofile"
+                class="text-gray-600 hover:text-red-700 transition-colors"
+                >[INSTAGRAM]</a
+              >
+              <a
+                href="mailto:you@email.com"
+                class="text-gray-600 hover:text-red-700 transition-colors">[EMAIL]</a
+              >
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </footer>
+
+<style>
+  .footer-table-container {
+    width: 100%;
+  }
+  
+  .footer-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .footer-table td {
+    padding: 8px 0;
+    vertical-align: middle;
+  }
+  
+  .footer-copyright {
+    text-align: left;
+  }
+  
+  .copyright-text {
+    font-family: var(--drawing-font);
+    font-size: 10px;
+    color: #9ca3af;
+    letter-spacing: 0.05em;
+  }
+  
+  .footer-social {
+    text-align: right;
+  }
+  
+  @media (max-width: 768px) {
+    .footer-table tbody tr {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .footer-copyright,
+    .footer-social {
+      text-align: center;
+    }
+    
+    .footer-social div {
+      justify-content: center !important;
+    }
+  }
+</style>

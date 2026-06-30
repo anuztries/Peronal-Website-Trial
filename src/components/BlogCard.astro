@@ -50,6 +50,8 @@ const dateStr = new Date(date).toLocaleDateString("en-US", {
     border: 1px solid var(--border-color);
     padding: 20px;
     transition: all 0.3s ease;
+    aspect-ratio: auto;
+    height: auto;
   }
   
   .blog-card:hover {
@@ -106,7 +108,7 @@ const dateStr = new Date(date).toLocaleDateString("en-US", {
     line-height: 1.6;
     margin: 0;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }

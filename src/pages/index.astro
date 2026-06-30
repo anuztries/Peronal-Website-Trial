@@ -22,10 +22,7 @@ const publishedPosts = allPosts
 <BaseLayout title="ANUJ KHATRI | Hardware Engineer">
   <!-- HERO SECTION with Schematic Border -->
   <section class="hero-schematic-wrapper">
-    <!-- OUTER BORDER -->
-    <div class="absolute inset-3 border-2 border-red-700 pointer-events-none"></div>
-    
-    <!-- INNER BORDER -->
+    <!-- INNER BORDER ONLY - removed outer red box -->
     <div class="absolute inset-8 border border-red-600 pointer-events-none"></div>
     
     <!-- TOP COORDINATES -->
@@ -69,15 +66,27 @@ const publishedPosts = allPosts
       <section class="hero-grid">
         <!-- LEFT -->
         <div class="flex flex-col gap-6 max-w-xl">
-          <div class="hero-content">
-            <p class="terminal-line">&gt; init_system(HARDWARE_ENGINEER);</p>
-            <p class="terminal-line">&gt; load_module(EMBEDDED_SYSTEMS);</p>
-            <p class="terminal-line">&gt; compile_skills(PCB_DESIGN + FPGA + FIRMWARE);</p>
-            <p class="terminal-line">&gt; status: READY_FOR_CHALLENGES;</p>
+          <!-- Terminal/Coding Box with Glassmorphism -->
+          <div class="terminal-box">
+            <div class="terminal-header">
+              <div class="terminal-buttons">
+                <span class="terminal-btn close"></span>
+                <span class="terminal-btn minimize"></span>
+                <span class="terminal-btn maximize"></span>
+              </div>
+              <span class="terminal-title">bash — anuj@portfolio</span>
+            </div>
+            <div class="terminal-body">
+              <p class="terminal-line"><span class="prompt">$</span> init_system(HARDWARE_ENGINEER);</p>
+              <p class="terminal-line"><span class="prompt">$</span> load_module(EMBEDDED_SYSTEMS);</p>
+              <p class="terminal-line"><span class="prompt">$</span> compile_skills(PCB_DESIGN + FPGA + FIRMWARE);</p>
+              <p class="terminal-line"><span class="prompt">$</span> status: READY_FOR_CHALLENGES;</p>
+              <p class="terminal-line"><span class="prompt">$</span> <span class="cursor">_</span></p>
+            </div>
           </div>
 
           <div class="space-y-4">
-            <p class="font-mono text-sm" style="color: var(--text-secondary);">// CONNECT_TO_NODE:</p>
+            <p class="font-mono text-sm connect-label">// CONNECT_TO_NODE:</p>
 
             <div
               class="flex flex-wrap gap-x-6 gap-y-2 font-mono text-xs uppercase tracking-wide"
@@ -186,16 +195,91 @@ const publishedPosts = allPosts
 <style>
   .terminal-line {
     font-family: var(--drawing-font);
-    font-size: 14px;
-    color: var(--text-secondary);
-    margin: 0 0 8px 0;
+    font-size: 13px;
+    color: #4ade80;
+    margin: 0 0 6px 0;
     line-height: 1.6;
+  }
+  
+  .terminal-line .prompt {
+    color: #f87171;
+    margin-right: 8px;
+  }
+  
+  .terminal-line .cursor {
+    animation: blink 1s step-end infinite;
+  }
+  
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  
+  /* Terminal Box with Glassmorphism */
+  .terminal-box {
+    background: rgba(31, 41, 55, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+  
+  .terminal-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .terminal-buttons {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .terminal-btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+  
+  .terminal-btn.close {
+    background: #ff5f56;
+  }
+  
+  .terminal-btn.minimize {
+    background: #ffbd2e;
+  }
+  
+  .terminal-btn.maximize {
+    background: #27ca40;
+  }
+  
+  .terminal-title {
+    font-family: var(--drawing-font);
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+  .terminal-body {
+    padding: 16px;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  
+  .connect-label {
+    color: var(--text-secondary);
   }
   
   /* Hero Schematic Wrapper - Only for homepage hero section */
   .hero-schematic-wrapper {
     position: relative;
-    border: 2px solid var(--drawing-red);
+    border: none;
     margin: 0;
     background: var(--drawing-paper);
   }
